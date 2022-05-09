@@ -1,0 +1,326 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 3px;
+    margin-top: 100px;
+}
+
+.separar{
+        display:block;
+        margin-bottom:15px;
+}
+
+tr {
+    max-width: 5px;
+    max-height: 5px;
+    cursor: pointer;
+}
+
+th{
+    /*border: 1px solid black;*/
+    background-color: whitesmoke;
+    text-align: left;
+}
+
+td {
+    border: 1px solid black;
+    width: 50px;
+    height: 45px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+td:hover {
+    transform: scale(1.5,1.5);
+    transition: 2s;
+}
+
+.blank {
+    visibility: hidden;
+}
+
+.description {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.descContainer {
+    border: 0;
+    transition: 2s ease;
+    z-index: -1;
+}
+
+    .descContainer div {
+        display: none;
+    }
+
+
+#blank {
+    display: block;
+}
+
+
+.corgasesnobres{
+    background-color: rgb(30, 33, 219);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.gasesnobres:hover{
+    background-color: rgb(30, 33, 219, 0.4);
+}
+
+.cornaometais{
+    background-color: rgb(161, 211, 68);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cornaometais:hover{
+    background-color: rgb(161, 211, 68, 0.4);
+}
+
+.coractinidios{
+    background-color: rgb(231, 128, 231);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.coractinidios:hover{
+    background-color: rgb(231, 128, 231, 0.4);
+}
+
+.cormetaisterrosos{
+    background-color: rgb(234, 218, 0);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cormetaisterrosos:hover{
+    background-color: rgb(234, 218, 0, 0.4);
+}
+
+.cormetaisalcalinos{
+    background-color: rgb(255, 166, 0);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cormetaisalcalinos:hover{
+    background-color: rgb(255, 166, 0, 0.4);
+}
+
+.cormetaistransicao{
+    background-color: rgb(235, 142, 142);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cormetaistransicao:hover{
+    background-color: rgb(235, 142, 142, 0.4);
+}
+
+.cormetaishalogenio{
+    background-color: rgb(192, 235, 255);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cormetaishalogenio:hover{
+    background-color: rgb(192, 235, 255, 0.4);
+}
+
+.cormetaislantanideos{
+    background-color: rgb(192, 255, 241);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.cormetaislantanideos:hover{
+    background-color: rgb(192, 255, 241, 0.4)
+}
+
+.coroutrosmetais{
+    background-color: rgb(162, 199, 211);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.coroutrosmetais:hover{
+    background-color: rgb(162, 199, 211, 0.4);
+}
+
+.corsemimetais{
+    background-color: rgb(77, 182, 172);
+    font-weight: bold;
+    font-size:x-large;
+    border-radius: 8px;
+}
+
+.corsemimetais:hover{
+    background-color: rgb(77, 182, 172, 0.4);
+}
+
+.numero{
+    font-size: 10px;
+    padding-right: 30px;
+    margin-top: -8px;
+}
+
+.letra{
+    font-size: 20px;
+}
+
+.retangulo{
+    position: relative;
+    background-color: #e6e6e6;
+    color: #404040;
+    font-size: 20px;
+    border-radius: 6px;
+    text-align: left;
+    padding-left: 15px;
+    border: none;
+}
+
+.botaoImprimir{
+    border-radius: 4px;
+    font-size: 10px;
+    border: 1px solid #bfbfbf;
+    padding: 9px;
+    color: #757575;
+    font-size: 12px;
+    width: 100px;
+    right: 15px;
+    bottom: 7px;
+    position: absolute;
+}
+
+.info{
+    border-radius: 50px;
+    vertical-align: baseline;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+    line-height: 22px;
+    color: #757575;
+    font-size: 5px;
+}
+
+.caixa{
+    background-color: rgb(161, 211, 68);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.caixa2{
+    background-color: rgb(255, 166, 0);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.caixa3{
+    background-color: rgb(77, 182, 172);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.caixa4{
+    background-color: rgb(162, 199, 211);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.caixa5{
+    background-color: rgb(192, 255, 241);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+    }
+
+.caixa6{
+    background-color: rgb(30, 33, 219);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 70px;
+}
+
+.caixa7{
+    background-color: rgb(234, 218, 0);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 51px;
+}
+
+.caixa8{
+    background-color: rgb(192, 235, 255);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 17px;
+}
+
+.caixa9{
+    background-color: rgb(235, 142, 142);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 71px;
+}
+
+.caixa10{           
+    background-color: rgb(231, 128, 231);
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 32px;
+}
+
+.legendas1{
+    margin-top: 50px;
+    margin-left: 320px;
+
+}
+
+.legendas2{
+    margin-top: 25px;
+    margin-left: 320px
+}

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tabela Periódica</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <style>
+        *{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 3px;
+            margin-top: 100px;
+        }
+
+        .separar{
+                display:block;
+                margin-bottom:15px;
+        }
+
+        tr {
+            max-width: 5px;
+            max-height: 5px;
+            cursor: pointer;
+        }
+
+        th{
+            /*border: 1px solid black;*/
+            background-color: whitesmoke;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid black;
+            width: 50px;
+            height: 45px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        td:hover {
+            transform: scale(1.5,1.5);
+            transition: 2s;
+        }
+
+        .blank {
+            visibility: hidden;
+        }
+
+        .description {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0;
+        }
+
+        .descContainer {
+            border: 0;
+            transition: 2s ease;
+            z-index: -1;
+        }
+
+            .descContainer div {
+                display: none;
+            }
+
+        
+        #blank {
+            display: block;
+        }
+
+
+        .corgasesnobres{
+            background-color: rgb(30, 33, 219);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .gasesnobres:hover{
+            background-color: rgb(30, 33, 219, 0.4);
+        }
+
+        .cornaometais{
+            background-color: rgb(161, 211, 68);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cornaometais:hover{
+            background-color: rgb(161, 211, 68, 0.4);
+        }
+
+        .coractinidios{
+            background-color: rgb(231, 128, 231);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .coractinidios:hover{
+            background-color: rgb(231, 128, 231, 0.4);
+        }
+
+        .cormetaisterrosos{
+            background-color: rgb(234, 218, 0);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cormetaisterrosos:hover{
+            background-color: rgb(234, 218, 0, 0.4);
+        }
+
+        .cormetaisalcalinos{
+            background-color: rgb(255, 166, 0);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cormetaisalcalinos:hover{
+            background-color: rgb(255, 166, 0, 0.4);
+        }
+
+        .cormetaistransicao{
+            background-color: rgb(235, 142, 142);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cormetaistransicao:hover{
+            background-color: rgb(235, 142, 142, 0.4);
+        }
+
+        .cormetaishalogenio{
+            background-color: rgb(192, 235, 255);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cormetaishalogenio:hover{
+            background-color: rgb(192, 235, 255, 0.4);
+        }
+
+        .cormetaislantanideos{
+            background-color: rgb(192, 255, 241);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .cormetaislantanideos:hover{
+            background-color: rgb(192, 255, 241, 0.4)
+        }
+
+        .coroutrosmetais{
+            background-color: rgb(162, 199, 211);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .coroutrosmetais:hover{
+            background-color: rgb(162, 199, 211, 0.4);
+        }
+
+        .corsemimetais{
+            background-color: rgb(77, 182, 172);
+            font-weight: bold;
+            font-size:x-large;
+            border-radius: 8px;
+        }
+
+        .corsemimetais:hover{
+            background-color: rgb(77, 182, 172, 0.4);
+        }
+
+        .numero{
+            font-size: 10px;
+            padding-right: 30px;
+            margin-top: -8px;
+        }
+
+        .letra{
+            font-size: 20px;
+        }
+
+        .retangulo{
+            position: relative;
+            background-color: #e6e6e6;
+            color: #404040;
+            font-size: 20px;
+            border-radius: 6px;
+            text-align: left;
+            padding-left: 15px;
+            border: none;
+        }
+
+        .botaoImprimir{
+            border-radius: 4px;
+            font-size: 10px;
+            border: 1px solid #bfbfbf;
+            padding: 9px;
+            color: #757575;
+            font-size: 12px;
+            width: 100px;
+            right: 15px;
+            bottom: 7px;
+            position: absolute;
+        }
+
+        .info{
+            border-radius: 50px;
+            vertical-align: baseline;
+            text-align: left;
+            padding-left: 10px;
+            padding-top: 10px;
+            line-height: 22px;
+            color: #757575;
+            font-size: 5px;
+        }
+
+        .caixa{
+            background-color: rgb(161, 211, 68);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+        }
+
+        .caixa2{
+            background-color: rgb(255, 166, 0);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+        }
+
+        .caixa3{
+            background-color: rgb(77, 182, 172);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+        }
+
+        .caixa4{
+            background-color: rgb(162, 199, 211);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+        }
+
+        .caixa5{
+            background-color: rgb(192, 255, 241);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+            }
+
+        .caixa6{
+            background-color: rgb(30, 33, 219);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 70px;
+        }
+
+        .caixa7{
+            background-color: rgb(234, 218, 0);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 51px;
+        }
+
+        .caixa8{
+            background-color: rgb(192, 235, 255);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 17px;
+        }
+
+        .caixa9{
+            background-color: rgb(235, 142, 142);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 71px;
+        }
+
+        .caixa10{           
+            background-color: rgb(231, 128, 231);
+            border: 1px solid black;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            margin-left: 32px;
+        }
+
+        .legendas1{
+            margin-top: 50px;
+            margin-left: 320px;
+     
+        }
+
+        .legendas2{
+            margin-top: 25px;
+            margin-left: 320px
+        }
+
+    </style>
+
+    <script>
+        function setDesc(cla, elem) {
+            document.getElementById('blank').style.display = 'none'
+            document.getElementById(elem).style.display = 'block'
+            document.getElementById('descContainer').className += cla;
+        }
+
+        function clearDesc(elem) {
+            document.getElementById(elem).style.display = 'none'
+            document.getElementById('blank').style.display = 'block'
+            document.getElementById('descContainer').className = 'descContainer';
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <table>
+        <tr>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'h')" onmouseout="clearDesc('h')"><div class="numero">1</div><div class="letra">H</div></td>
+            <td class="blank"></td>
+            <th colspan="10" class="retangulo">Tabela Periódica
+                <div class="botaoImprimir" onclick="window.print()"><strong>Imprimir</strong>(PDF)</div>
+            </th>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'he')" onmouseout="clearDesc('he')"><div class="numero">2</div><div class="letra">He</div></td>
+        </tr>
+
+        <tr>
+            <td id class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'li')" onmouseout="clearDesc('li')"><div class="numero">3</div><div class="letra">Li</div></td>
+            <td class="cormetaisterrosos" onmouseover="setDesc(' cormetaisterrosos', 'be')" onmouseout="clearDesc('be')"><div class="numero">4</div><div class="letra">Be</div></td>
+            <th id="descContainer" class="descContainer" class="info" rowspan="2" colspan="10">
+                <div id="blank" class="description">A Tabela Periódica é um modelo que agrupa todos os elementos químicos conhecidos e suas propriedades. Eles estão organizados em ordem crescente correspondente aos números atômicos (número de prótons).</div>
+                
+                <!-- NÃO METAIS -->
+                <div id="h" class="description">Hidrogénio</div>
+                <div id="c" class="description">Carbono</div>
+                <div id="n" class="description">Nitrogénio</div>
+                <div id="o" class="description">Oxigénio</div>
+                <div id="p" class="description">Fósforo</div>
+                <div id="s" class="description">Enxofre</div>
+                <div id="se" class="description">Selénio</div>
+
+                <!-- GASES NOBRES -->
+                <div id="he" class="description">Hélio</div>
+                <div id="ne" class="description">Neónio</div>
+                <div id="ar" class="description">Argónio</div>
+                <div id="kr" class="description">Criptónio</div>
+                <div id="xe" class="description">Xenónio</div>
+                <div id="rn" class="description">Radónio</div>
+                <div id="og" class="description">Oganessónio</div>
+
+                <!-- ACTINIDIOS -->
+                <div id="ac" class="description">Actínio</div>
+                <div id="th" class="description">Tório</div>
+                <div id="pa" class="description">Protactínio</div>
+                <div id="u" class="description">Urânio</div>
+                <div id="np" class="description">Netúnio</div>
+                <div id="pu" class="description">Plutónio</div>
+                <div id="am" class="description">Amerício</div>
+                <div id="cm" class="description">Cúrio</div>
+                <div id="bk" class="description">Berquélio</div>
+                <div id="cf" class="description">Califórnio</div>
+                <div id="es" class="description">Einsténio</div>
+                <div id="fm" class="description">Férmio</div>
+                <div id="md" class="description">Mendelévio</div>
+                <div id="no" class="description">Nobélio</div>
+                <div id="lr" class="description">Laurêncio</div>
+
+                <!-- TERROSOS -->
+                <div id="be" class="description">Berílio</div>
+                <div id="mg" class="description">Magnésio</div>
+                <div id="ca" class="description">Cálcio</div>
+                <div id="sr" class="description">Estrôncio</div>
+                <div id="ba" class="description">Bário</div>
+                <div id="ra" class="description">Rádio</div>
+
+                <!-- ALCALINOS -->
+                <div id="li" class="description">Lítio</div>
+                <div id="na" class="description">Sódio</div>
+                <div id="k" class="description">Potássio</div>
+                <div id="rb" class="description">Rubídio</div>
+                <div id="cs" class="description">Césio</div>
+                <div id="fr" class="description">Frâncio</div>
+
+                <!-- TRANSICAO -->
+                <div id="sc" class="description">Escândio</div>
+                <div id="ti" class="description">Titânio</div>
+                <div id="v" class="description">Vanádio</div>
+                <div id="cr" class="description">Cromo</div>
+                <div id="mn" class="description">Manganês</div>
+                <div id="fe" class="description">Ferro</div>
+                <div id="co" class="description">Cobalto</div>
+                <div id="ni" class="description">Níquel</div>
+                <div id="cu" class="description">Cobre</div>
+                <div id="zn" class="description">Zinco</div>
+                <div id="y" class="description">Ítrio</div>
+                <div id="zr" class="description">Zircônio</div>
+                <div id="nb" class="description">Nióbio</div>
+                <div id="mo" class="description">Molibdênio</div>
+                <div id="tc" class="description">Tecnécio</div>
+                <div id="ru" class="description">Rutênio</div>
+                <div id="rh" class="description">Ródio</div>
+                <div id="pd" class="description">Paládio</div>
+                <div id="ag" class="description">Prata</div>
+                <div id="cd" class="description">Câdmio</div>
+                <div id="hf" class="description">Háfnio</div>
+                <div id="ta" class="description">Tântalo</div>
+                <div id="w" class="description">Tungstênio</div>
+                <div id="re" class="description">Rénio</div>
+                <div id="os" class="description">Ósmio</div>
+                <div id="ir" class="description">Irídio</div>
+                <div id="pt" class="description">Platina</div>
+                <div id="au" class="description">Ouro</div>
+                <div id="hg" class="description">Mercúrio</div>
+                <div id="rf" class="description">Rutherfórdio</div>
+                <div id="db" class="description">Dúbnio</div>
+                <div id="sg" class="description">Seabórgio</div>
+                <div id="bh" class="description">Bóhrio</div>
+                <div id="hs" class="description">Hássio</div>
+                <div id="mt" class="description">Meitnério</div>
+                <div id="ds" class="description">Darmstádio</div>
+                <div id="rg" class="description">Roentgénio</div>
+                <div id="cn" class="description">Copernício</div>
+
+                <!-- LANTANIDEOS -->
+                <div id="la" class="description">Lantânio</div>
+                <div id="ce" class="description">Cério</div>
+                <div id="pr" class="description">Praseodímio</div>
+                <div id="nd" class="description">Neodímio</div>
+                <div id="pm" class="description">Promécio</div>
+                <div id="sm" class="description">Samário</div>
+                <div id="eu" class="description">Európio</div>
+                <div id="gd" class="description">Gadolínio</div>
+                <div id="tb" class="description">Térbio</div>
+                <div id="dy" class="description">Disprósio</div>
+                <div id="ho" class="description">Hólmio</div>
+                <div id="er" class="description">Érbio</div>
+                <div id="tm" class="description">Túlio</div>    
+                <div id="yb" class="description">Itérbio</div>
+                <div id="lu" class="description">Lutécio</div>                
+
+                <!-- HALOGENIO -->
+                <div id="f" class="description">Flúor</div>
+                <div id="ci" class="description">Cloro</div>
+                <div id="br" class="description">Bromo</div>
+                <div id="i" class="description">Iodo</div>
+                <div id="at" class="description">Ástato</div>
+                <div id="ts" class="description">Tenessino</div>     
+
+                <!-- OUTROS METAIS -->
+                <div id="al" class="description">Alumínio</div>
+                <div id="ga" class="description">Gálio</div>
+                <div id="in" class="description">Índio</div>
+                <div id="tl" class="description">Tálio</div>
+                <div id="nh" class="description">Nihónio</div>
+                <div id="sn" class="description">Estanho</div>     
+                <div id="pb" class="description">Chumbo</div>
+                <div id="fl" class="description">Fleróvio</div>
+                <div id="bi" class="description">Bismuto</div>
+                <div id="mc" class="description">Moscóvio</div>
+                <div id="lv" class="description">Livermório</div>
+
+                <!-- SEMI METAIS -->
+                <div id="b" class="description">Boro</div>
+                <div id="si" class="description">Silício</div>
+                <div id="ge" class="description">Germánio</div>
+                <div id="as" class="description">Arsénio</div>
+                <div id="sb" class="description">Antimónio</div>
+                <div id="te" class="description">Telúrio</div>     
+                <div id="po" class="description">Polónio</div>
+                
+            </th>
+            
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'b')" onmouseout="clearDesc('b')"><div class="numero">5</div><div class="letra">B</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'c')" onmouseout="clearDesc('c')"><div class="numero">6</div><div class="letra">C</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'n')" onmouseout="clearDesc('n')"><div class="numero">7</div><div class="letra">N</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'o')" onmouseout="clearDesc('o')"><div class="numero">8</div><div class="letra">O</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'f')" onmouseout="clearDesc('f')"><div class="numero">9</div><div class="letra">F</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'ne')" onmouseout="clearDesc('ne')"><div class="numero">10</div><div class="letra">Ne</div></td>
+        </tr>
+
+        <tr>
+            <td class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'na')" onmouseout="clearDesc('na')"><div class="numero">11</div><div class="letra">Na</div></td>
+            <td class="cormetaisterrosos" onmouseover="setDesc(' cormetaisterrosos', 'mg')" onmouseout="clearDesc('mg')"><div class="numero">12</div><div class="letra">Mg</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'al')" onmouseout="clearDesc('al')"><div class="numero">13</div><div class="letra">Al</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'si')" onmouseout="clearDesc('si')"><div class="numero">14</div><div class="letra">Si</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'p')" onmouseout="clearDesc('p')"><div class="numero">15</div><div class="letra">P</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 's')" onmouseout="clearDesc('s')"><div class="numero">16</div><div class="letra">S</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'ci')" onmouseout="clearDesc('ci')"><div class="numero">17</div><div class="letra">Cl</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'ar')" onmouseout="clearDesc('ar')"><div class="numero">18</div><div class="letra">Ar</div></td>
+        </tr>
+
+        <tr>
+            <td class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'k')" onmouseout="clearDesc('k')"><div class="numero">19</div><div class="letra">K</div></td>
+            <td class="cormetaisterrosos" onmouseover="setDesc(' cormetaisterrosos', 'ca')" onmouseout="clearDesc('ca')"><div class="numero">20</div><div class="letra">Ca</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'sc')" onmouseout="clearDesc('sc')"><div class="numero">21</div><div class="letra">Sc</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ti')" onmouseout="clearDesc('ti')"><div class="numero">22</div><div class="letra">Ti</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'v')" onmouseout="clearDesc('v')"><div class="numero">23</div><div class="letra">V</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'cr')" onmouseout="clearDesc('cr')"><div class="numero">24</div><div class="letra">Cr</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'mn')" onmouseout="clearDesc('mn')"><div class="numero">25</div><div class="letra">Mn</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'fe')" onmouseout="clearDesc('fe')"><div class="numero">26</div><div class="letra">Fe</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'co')" onmouseout="clearDesc('co')"><div class="numero">27</div><div class="letra">Co</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ni')" onmouseout="clearDesc('ni')"><div class="numero">28</div><div class="letra">Ni</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'cu')" onmouseout="clearDesc('cu')"><div class="numero">29</div><div class="letra">Cu</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'zn')" onmouseout="clearDesc('zn')"><div class="numero">30</div><div class="letra">Zn</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'ga')" onmouseout="clearDesc('ga')"><div class="numero">31</div><div class="letra">Ga</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'ge')" onmouseout="clearDesc('ge')"><div class="numero">32</div><div class="letra">Ge</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'as')" onmouseout="clearDesc('as')"><div class="numero">33</div><div class="letra">As</div></td>
+            <td class="cornaometais" onmouseover="setDesc(' cornaometais', 'se')" onmouseout="clearDesc('se')"><div class="numero">34</div><div class="letra">Se</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'br')" onmouseout="clearDesc('br')"><div class="numero">35</div><div class="letra">Br</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'kr')" onmouseout="clearDesc('kr')"><div class="numero">36</div><div class="letra">Kr</div></td>    
+        </tr>
+
+        <tr>
+            <td class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'rb')" onmouseout="clearDesc('rb')"><div class="numero">37</div><div class="letra">Rb</div></td>
+            <td class="cormetaisterrosos" onmouseover="setDesc(' cormetaisterrosos', 'sr')" onmouseout="clearDesc('sr')"><div class="numero">38</div><div class="letra">Sr</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'y')" onmouseout="clearDesc('y')"><div class="numero">39</div><div class="letra">Y</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'zr')" onmouseout="clearDesc('zr')"><div class="numero">40</div><div class="letra">Zr</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'nb')" onmouseout="clearDesc('nb')"><div class="numero">41</div><div class="letra">Nb</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'mo')" onmouseout="clearDesc('mo')"><div class="numero">42</div><div class="letra">Mo</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'tc')" onmouseout="clearDesc('tc')"><div class="numero">43</div><div class="letra">Tc</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ru')" onmouseout="clearDesc('ru')"><div class="numero">44</div><div class="letra">Ru</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'rh')" onmouseout="clearDesc('rh')"><div class="numero">45</div><div class="letra">Rh</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'pd')" onmouseout="clearDesc('pd')"><div class="numero">46</div><div class="letra">Pd</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ag')" onmouseout="clearDesc('ag')"><div class="numero">47</div><div class="letra">Ag</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'cd')" onmouseout="clearDesc('cd')"><div class="numero">48</div><div class="letra">Cd</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'in')" onmouseout="clearDesc('in')"><div class="numero">49</div><div class="letra">In</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'sn')" onmouseout="clearDesc('sn')"><div class="numero">50</div><div class="letra">Sn</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'sb')" onmouseout="clearDesc('sb')"><div class="numero">51</div><div class="letra">Sb</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'te')" onmouseout="clearDesc('te')"><div class="numero">52</div><div class="letra">Te</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'i')" onmouseout="clearDesc('i')"><div class="numero">53</div class="letra"><div>I</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'xe')" onmouseout="clearDesc('xe')"><div class="numero">54</div><div class="letra">Xe</div></td>   
+        </tr>
+
+        <tr>
+            <td class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'cs')" onmouseout="clearDesc('cs')"><div class="numero">55</div><div class="letra">Cs</div></td>
+            <td class="cormetaisterrosos" onmouseover="setDesc(' cormetaisterrosos', 'ba')" onmouseout="clearDesc('ba')"><div class="numero">56</div><div class="letra">Ba</div></td>
+            <td class="blank"></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'hf')" onmouseout="clearDesc('hf')"><div class="numero">72</div><div class="letra">Hf</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ta')" onmouseout="clearDesc('ta')"><div class="numero">73</div><div class="letra">Ta</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'w')" onmouseout="clearDesc('w')"><div class="numero">74</div><div class="letra">W</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 're')" onmouseout="clearDesc('re')"><div class="numero">75</div><div class="letra">Re</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'os')" onmouseout="clearDesc('os')"><div class="numero">76</div><div class="letra">Os</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ir')" onmouseout="clearDesc('ir')"><div class="numero">77</div><div class="letra">Ir</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'pt')" onmouseout="clearDesc('pt')"><div class="numero">78</div><div class="letra">Pt</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'au')" onmouseout="clearDesc('au')"><div class="numero">79</div><div class="letra">Au</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'hg')" onmouseout="clearDesc('hg')"><div class="numero">80</div><div class="letra">Hg</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'tl')" onmouseout="clearDesc('tl')"><div class="numero">81</div><div class="letra">Tl</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'pb')" onmouseout="clearDesc('pb')"><div class="numero">82</div><div class="letra">Pb</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'bi')" onmouseout="clearDesc('bi')"><div class="numero">83</div><div class="letra">Bi</div></td>
+            <td class="corsemimetais" onmouseover="setDesc(' corsemimetais', 'po')" onmouseout="clearDesc('po')"><div class="numero">84</div><div class="letra">Po</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'at')" onmouseout="clearDesc('at')"><div class="numero">85</div><div class="letra">At</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'rn')" onmouseout="clearDesc('rn')"><div class="numero">86</div><div class="letra">Rn</div></td>
+        </tr>
+
+        <tr>
+            <td class="cormetaisalcalinos" onmouseover="setDesc(' cormetaisalcalinos', 'fr')" onmouseout="clearDesc('fr')"><div class="numero">87</div><div class="letra">Fr</div></td>
+            <td class=cormetaisterrosos onmouseover="setDesc(' cormetaisterrosos', 'ra')" onmouseout="clearDesc('ra')"><div class="numero">88</div><div class="letra">Ra</div></td>
+            <td class="blank"></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'rf')" onmouseout="clearDesc('rf')"><div class="numero">104</div><div class="letra">Rf</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'db')" onmouseout="clearDesc('db')"><div class="numero">105</div><div class="letra">Db</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'sg')" onmouseout="clearDesc('sg')"><div class="numero">106</div><div class="letra">Sg</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'bh')" onmouseout="clearDesc('bh')"><div class="numero">107</div><div class="letra">Bh</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'hs')" onmouseout="clearDesc('hs')"><div class="numero">108</div><div class="letra">Hs</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'mt')" onmouseout="clearDesc('mt')"><div class="numero">109</div><div class="letra">Mt</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'ds')" onmouseout="clearDesc('ds')"><div class="numero">110</div><div class="letra">Ds</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'rg')" onmouseout="clearDesc('rg')"><div class="numero">111</div><div class="letra">Rg</div></td>
+            <td class="cormetaistransicao" onmouseover="setDesc(' cormetaistransicao', 'cn')" onmouseout="clearDesc('cn')"><div class="numero">112</div><div class="letra">Cn</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'nh')" onmouseout="clearDesc('nh')"><div class="numero">113</div><div class="letra">Nh</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'fl')" onmouseout="clearDesc('fl')"><div class="numero">114</div><div class="letra">Fl</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'mc')" onmouseout="clearDesc('mc')"><div class="numero">115</div><div class="letra">Mc</div></td>
+            <td class="coroutrosmetais" onmouseover="setDesc(' coroutrosmetais', 'lv')" onmouseout="clearDesc('lv')"><div class="numero">116</div><div class="letra">LV</div></td>
+            <td class="cormetaishalogenio" onmouseover="setDesc(' cormetaishalogenio', 'ts')" onmouseout="clearDesc('ts')"><div class="numero">117</div><div class="letra">Ts</div></td>
+            <td class="corgasesnobres" onmouseover="setDesc(' corgasesnobres', 'og')" onmouseout="clearDesc('og')"><div class="numero">118</div><div class="letra">Og</div></td>
+        </tr>
+        <tr class="separar"></tr>
+        <tr>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'la')" onmouseout="clearDesc('la')"><div class="numero">57</div><div class="letra">La</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'ce')" onmouseout="clearDesc('ce')"><div class="numero">58</div><div class="letra">Ce</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'pr')" onmouseout="clearDesc('pr')"><div class="numero">59</div><div class="letra">Pr</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'nd')" onmouseout="clearDesc('nd')"><div class="numero">60</div><div class="letra">Nd</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'pm')" onmouseout="clearDesc('pm')"><div class="numero">61</div><div class="letra">Pm</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'sm')" onmouseout="clearDesc('sm')"><div class="numero">62</div><div class="letra">Sm</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'eu')" onmouseout="clearDesc('eu')"><div class="numero">63</div><div class="letra">Eu</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'gd')" onmouseout="clearDesc('gd')"><div class="numero">64</div><div class="letra">Gd</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'tb')" onmouseout="clearDesc('tb')"><div class="numero">65</div><div class="letra">Tb</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'dy')" onmouseout="clearDesc('dy')"><div class="numero">66</div><div class="letra">Dy</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'ho')" onmouseout="clearDesc('ho')"><div class="numero">67</div><div class="letra">Ho</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'er')" onmouseout="clearDesc('er')"><div class="numero">68</div><div class="letra">Er</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'tm')" onmouseout="clearDesc('tm')"><div class="numero">69</div><div class="letra">Tm</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'yb')" onmouseout="clearDesc('yb')"><div class="numero">70</div><div class="letra">Yb</div></td>
+            <td class="cormetaislantanideos" onmouseover="setDesc(' cormetaislantanideos', 'lu')" onmouseout="clearDesc('lu')"><div class="numero">71</div><div class="letra">Lu</div></td>       
+        </tr>
+
+        <tr>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="blank"></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'ac')" onmouseout="clearDesc('ac')"><div class="numero">89</div><div class="letra">Ac</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'th')" onmouseout="clearDesc('th')"><div class="numero">90</div><div class="letra">Th</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'pa')" onmouseout="clearDesc('pa')"><div class="numero">91</div><div class="letra">Pa</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'u')" onmouseout="clearDesc('u')"><div class="numero">92</div><div class="letra">U</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'np')" onmouseout="clearDesc('np')"><div class="numero">93</div><div class="letra">Np</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'pu')" onmouseout="clearDesc('pu')"><div class="numero">94</div><div class="letra">Pu</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'am')" onmouseout="clearDesc('am')"><div class="numero">95</div><div class="letra">Am</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'cm')" onmouseout="clearDesc('cm')"><div class="numero">96</div><div class="letra">Cm</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'bk')" onmouseout="clearDesc('bk')"><div class="numero">97</div><div class="letra">BK</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'cf')" onmouseout="clearDesc('cf')"><div class="numero">98</div><div class="letra">Cf</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'es')" onmouseout="clearDesc('es')"><div class="numero">99</div><div class="letra">Es</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'fm')" onmouseout="clearDesc('fm')"><div class="numero">100</div><div class="letra">Fm</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'md')" onmouseout="clearDesc('md')"><div class="numero">101</div><div class="letra">Md</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'no')" onmouseout="clearDesc('no')"><div class="numero">102</div><div class="letra">No</div></td>
+            <td class="coractinidios" onmouseover="setDesc(' coractinidios', 'lr')" onmouseout="clearDesc('lr')"><div class="numero">103</div><div class="letra">Lr</div></td>           
+        </tr>
+    </table>
+    
+    <div class="legendas1">
+
+        <span class="caixa"></span>
+        <span style="width: 20px;">Não Metais</span>
+
+        <span class="caixa2"></span>
+        <span>Metais alcalinos</span>
+
+        <span class="caixa3"></span>
+        <span>Semimetais</span>
+
+        <span class="caixa4"></span>
+        <span>Outros metais</span>
+
+        <span class="caixa5"></span>
+        <span>Lantanídeos</span>
+
+    </div>
+
+    <div class="legendas2">
+
+        <span class="caixa6"></span>
+        <span>Gases nobres</span>
+
+        <span class="caixa7"></span>
+        <span>Metais alcalino-terrosos</span>
+
+        <span class="caixa8"></span>
+        <span>Halogênios</span>
+
+        <span class="caixa9"></span>
+        <span>Metais de transição</span>
+
+        <span class="caixa10"></span>
+        <span>Actinídios</span>
+
+    </div>
+    
+</body>
+</html>
